@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>CD80E957-79B4-4DB3-ACB5-0AAAD6EE283E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ArtisticB</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C0C879CB5E61EFE0622A782BD47B2D2BCEBE7658</key>
+		<string>https://github.com/project-planB/version1.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ArtisticB/ArtisticB.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C0C879CB5E61EFE0622A782BD47B2D2BCEBE7658</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/project-planB/version1.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C0C879CB5E61EFE0622A782BD47B2D2BCEBE7658</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C0C879CB5E61EFE0622A782BD47B2D2BCEBE7658</string>
+			<key>IDESourceControlWCCName</key>
+			<string>version1</string>
+		</dict>
+	</array>
+</dict>
+</plist>
