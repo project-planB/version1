@@ -17,6 +17,12 @@
 		668CD0311A20738F00220529 /* ArtisticBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0301A20738F00220529 /* ArtisticBTests.m */; };
 		668CD03C1A20774700220529 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD03B1A20774700220529 /* ThirdViewController.m */; };
 		668CD03F1A20782600220529 /* FourthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD03E1A20782600220529 /* FourthViewController.m */; };
+		668CD0451A22F96F00220529 /* EditInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0421A22F96F00220529 /* EditInfoViewController.m */; };
+		668CD0461A22F96F00220529 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0441A22F96F00220529 /* AlbumViewController.m */; };
+		668CD04A1A22F97A00220529 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0481A22F97900220529 /* DBManager.m */; };
+		668CD04B1A22F97A00220529 /* sampledb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 668CD0491A22F97900220529 /* sampledb.sql */; };
+		668CD04D1A22FA7300220529 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 668CD04C1A22FA7300220529 /* libsqlite3.dylib */; };
+		668CD0531A2314C600220529 /* AlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0521A2314C600220529 /* AlbumViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,16 @@
 		668CD03B1A20774700220529 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		668CD03D1A20782600220529 /* FourthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FourthViewController.h; sourceTree = "<group>"; };
 		668CD03E1A20782600220529 /* FourthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourthViewController.m; sourceTree = "<group>"; };
+		668CD0411A22F96F00220529 /* EditInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditInfoViewController.h; sourceTree = "<group>"; };
+		668CD0421A22F96F00220529 /* EditInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditInfoViewController.m; sourceTree = "<group>"; };
+		668CD0431A22F96F00220529 /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumViewController.h; sourceTree = "<group>"; };
+		668CD0441A22F96F00220529 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumViewController.m; sourceTree = "<group>"; };
+		668CD0471A22F97900220529 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		668CD0481A22F97900220529 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		668CD0491A22F97900220529 /* sampledb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampledb.sql; sourceTree = "<group>"; };
+		668CD04C1A22FA7300220529 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		668CD0511A2314C600220529 /* AlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumViewCell.h; sourceTree = "<group>"; };
+		668CD0521A2314C600220529 /* AlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				668CD04D1A22FA7300220529 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +89,7 @@
 		668CD0051A20738E00220529 = {
 			isa = PBXGroup;
 			children = (
+				668CD04C1A22FA7300220529 /* libsqlite3.dylib */,
 				668CD0101A20738E00220529 /* ArtisticB */,
 				668CD02D1A20738F00220529 /* ArtisticBTests */,
 				668CD00F1A20738E00220529 /* Products */,
@@ -90,6 +108,10 @@
 		668CD0101A20738E00220529 /* ArtisticB */ = {
 			isa = PBXGroup;
 			children = (
+				668CD0471A22F97900220529 /* DBManager.h */,
+				668CD0481A22F97900220529 /* DBManager.m */,
+				668CD0491A22F97900220529 /* sampledb.sql */,
+				668CD0401A22F90000220529 /* PersonalView */,
 				668CD03D1A20782600220529 /* FourthViewController.h */,
 				668CD03E1A20782600220529 /* FourthViewController.m */,
 				668CD0151A20738F00220529 /* AppDelegate.h */,
@@ -132,6 +154,19 @@
 				668CD02F1A20738F00220529 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		668CD0401A22F90000220529 /* PersonalView */ = {
+			isa = PBXGroup;
+			children = (
+				668CD0411A22F96F00220529 /* EditInfoViewController.h */,
+				668CD0421A22F96F00220529 /* EditInfoViewController.m */,
+				668CD0431A22F96F00220529 /* AlbumViewController.h */,
+				668CD0441A22F96F00220529 /* AlbumViewController.m */,
+				668CD0511A2314C600220529 /* AlbumViewCell.h */,
+				668CD0521A2314C600220529 /* AlbumViewCell.m */,
+			);
+			name = PersonalView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +251,7 @@
 			files = (
 				668CD0201A20738F00220529 /* Main.storyboard in Resources */,
 				668CD0251A20738F00220529 /* LaunchScreen.xib in Resources */,
+				668CD04B1A22F97A00220529 /* sampledb.sql in Resources */,
 				668CD0221A20738F00220529 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,10 +272,14 @@
 			files = (
 				668CD03F1A20782600220529 /* FourthViewController.m in Sources */,
 				668CD03C1A20774700220529 /* ThirdViewController.m in Sources */,
+				668CD0461A22F96F00220529 /* AlbumViewController.m in Sources */,
+				668CD04A1A22F97A00220529 /* DBManager.m in Sources */,
 				668CD01D1A20738F00220529 /* SecondViewController.m in Sources */,
 				668CD0171A20738F00220529 /* AppDelegate.m in Sources */,
 				668CD01A1A20738F00220529 /* FirstViewController.m in Sources */,
 				668CD0141A20738E00220529 /* main.m in Sources */,
+				668CD0531A2314C600220529 /* AlbumViewCell.m in Sources */,
+				668CD0451A22F96F00220529 /* EditInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +470,7 @@
 				668CD0361A20738F00220529 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		668CD0371A20738F00220529 /* Build configuration list for PBXNativeTarget "ArtisticBTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +479,7 @@
 				668CD0391A20738F00220529 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

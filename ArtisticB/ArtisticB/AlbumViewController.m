@@ -6,10 +6,11 @@
 //  Copyright (c) 2014년 ___NicholasKim___. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "AlbumViewController.h"
+#import "AlbumViewCell.h"
 #import "DBManager.h"
 
-@interface ViewController ()
+@interface AlbumViewController ()
 
 @property (nonatomic, strong) DBManager *dbManager;
 
@@ -17,12 +18,13 @@
 
 @property (nonatomic) int recordIDToEdit;
 
-
 -(void)loadData;
 
 @end
 
-@implementation ViewController
+@implementation AlbumViewController
+
+@synthesize albumCell;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -94,17 +96,18 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     // Dequeue the cell.
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"idCellRecord" forIndexPath:indexPath];
+    AlbumViewCell *cell = (AlbumViewCell *)[tableView dequeueReusableCellWithIdentifier:@"idCellRecord" forIndexPath:indexPath];
     
     NSInteger indexOfFirstname = [self.dbManager.arrColumnNames indexOfObject:@"firstname"];
     NSInteger indexOfLastname = [self.dbManager.arrColumnNames indexOfObject:@"lastname"];
     NSInteger indexOfAge = [self.dbManager.arrColumnNames indexOfObject:@"age"];
     
     // Set the loaded data to the appropriate cell labels.
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfFirstname], [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfLastname]];
-    
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Age: %@", [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfAge]];
-    cell.frame = CGRectMake(0, 0, 320, 320);
+//    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfFirstname], [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfLastname]];
+//    
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"Age: %@", [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfAge]];
+//    cell.frame = CGRectMake(0, 0, 320, 320);
+    cell.txtFirstname = [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfFirstname];
     cell.transform = CGAffineTransformMakeRotation(M_PI * 0.5);
     
     
