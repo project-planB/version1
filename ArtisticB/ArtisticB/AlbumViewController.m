@@ -107,7 +107,7 @@
 //    
 //    cell.detailTextLabel.text = [NSString stringWithFormat:@"Age: %@", [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfAge]];
 //    cell.frame = CGRectMake(0, 0, 320, 320);
-    cell.txtFirstname = [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfFirstname];
+    cell.txtFirstname.text = [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfFirstname];
     cell.transform = CGAffineTransformMakeRotation(M_PI * 0.5);
     
     

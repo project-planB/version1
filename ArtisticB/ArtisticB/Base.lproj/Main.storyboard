@@ -113,11 +113,10 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="q7g-bV-B0Z">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="q7g-bV-B0Z">
                                 <rect key="frame" x="0.0" y="124" width="320" height="320"/>
-                                <color key="backgroundColor" red="1" green="0.46003038419999998" blue="0.275437294" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCellRecord" rowHeight="320" id="pCX-wq-bwL" customClass="AlbumViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="idCellRecord" rowHeight="320" id="pCX-wq-bwL" customClass="AlbumViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="pCX-wq-bwL" id="MGL-TJ-cwY">
@@ -125,11 +124,47 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FRJ-sU-CAj">
                                                     <rect key="frame" x="60" y="10" width="200" height="300"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yfY-k8-TNt">
+                                                            <rect key="frame" x="86" y="26" width="106" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Birthday" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wRA-pm-k9w">
+                                                            <rect key="frame" x="86" y="64" width="106" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajG-ye-fTm">
+                                                            <color key="backgroundColor" red="0.89811905569999995" green="0.89811905569999995" blue="0.89811905569999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </imageView>
+                                                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="GrS-Jx-1mb">
+                                                            <rect key="frame" x="8" y="127" width="184" height="29"/>
+                                                            <segments>
+                                                                <segment title="Boy"/>
+                                                                <segment title="Girl"/>
+                                                            </segments>
+                                                        </segmentedControl>
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nationality" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UzX-hn-Imf">
+                                                            <rect key="frame" x="8" y="163" width="184" height="30"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lM0-Ig-ggj">
+                                                            <rect key="frame" x="0.0" y="262" width="200" height="30"/>
+                                                            <state key="normal" title="Delete">
+                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="0.46003038419999998" blue="0.275437294" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="txtFirstname" destination="yfY-k8-TNt" id="Yqt-RQ-W4n"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
