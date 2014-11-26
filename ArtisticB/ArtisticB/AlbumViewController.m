@@ -16,7 +16,7 @@
 
 @property (nonatomic, strong) NSArray *arrAlbumInfo;
 
-@property (nonatomic) int recordIDToEdit;
+@property (nonatomic) NSInteger recordIDToEdit;
 
 -(void)loadData;
 
@@ -66,6 +66,11 @@
 
 - (IBAction)editRecord:(id)sender {
     // Before performing the segue, set the -1 value to the recordIDToEdit. That way we'll indicate that we want to add a new record and not to edit an existing one.
+    NSArray *visible = [self.tblAlbums indexPathsForVisibleRows];
+    
+    NSIndexPath *indexpath = (NSIndexPath*)[visible objectAtIndex:0];
+    
+    self.recordIDToEdit = (NSInteger)indexpath.row + 1;
     
     // Perform the segue.
     [self performSegueWithIdentifier:@"idSegueEditInfo" sender:self];
@@ -116,7 +121,6 @@
     NSLog(@"%@",[[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfBirthday]);
     cell.txtNationality.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfNationality];
     cell.transform = CGAffineTransformMakeRotation(M_PI * 0.5);
-    self.recordIDToEdit = indexPath.row + 1;
     return cell;
 }
 

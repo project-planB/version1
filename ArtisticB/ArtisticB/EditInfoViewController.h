@@ -25,7 +25,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *txtBirthday;
 
-@property (nonatomic) int recordIDToEdit;
+@property (nonatomic) NSInteger recordIDToEdit;
 
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolBar;
