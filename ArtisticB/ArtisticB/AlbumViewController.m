@@ -16,7 +16,7 @@
 
 @property (nonatomic, strong) NSArray *arrAlbumInfo;
 
-@property (nonatomic) NSInteger recordIDToEdit;
+@property (nonatomic) int recordIDToEdit;
 
 -(void)loadData;
 
@@ -134,6 +134,10 @@
 
 -(void)editingInfoWasFinished{
     // Reload the data.
+    NSString *query = @"update albumInfo";
+
+    [self.dbManager loadDataFromDB:query];
+    [self.tblAlbums reloadData];
     [self loadData];
 }
 

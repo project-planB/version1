@@ -152,10 +152,15 @@
     // Load the relevant data.
     NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
     
+    if(results.count > 0) {
     // Set the loaded data to the textfields.
     self.txtName.text = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"name"]];
     self.txtNationality.text = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"nationality"]];
     self.txtBirthday.text = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"birthday"]];
+    } else {
+        NSLog(@"%d", self.recordIDToEdit);
+        NSLog(@"No results");
+    }
 }
 
 - (IBAction)deleteFromDB:(id)sender {
