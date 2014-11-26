@@ -20,9 +20,9 @@
 		668CD0451A22F96F00220529 /* EditInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0421A22F96F00220529 /* EditInfoViewController.m */; };
 		668CD0461A22F96F00220529 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0441A22F96F00220529 /* AlbumViewController.m */; };
 		668CD04A1A22F97A00220529 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0481A22F97900220529 /* DBManager.m */; };
-		668CD04B1A22F97A00220529 /* sampledb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 668CD0491A22F97900220529 /* sampledb.sql */; };
 		668CD04D1A22FA7300220529 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 668CD04C1A22FA7300220529 /* libsqlite3.dylib */; };
 		668CD0531A2314C600220529 /* AlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0521A2314C600220529 /* AlbumViewCell.m */; };
+		66FA03201A25E4F900489EA0 /* albumdb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 66FA031F1A25E4F900489EA0 /* albumdb.sql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +61,10 @@
 		668CD0441A22F96F00220529 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumViewController.m; sourceTree = "<group>"; };
 		668CD0471A22F97900220529 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		668CD0481A22F97900220529 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
-		668CD0491A22F97900220529 /* sampledb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampledb.sql; sourceTree = "<group>"; };
 		668CD04C1A22FA7300220529 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		668CD0511A2314C600220529 /* AlbumViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumViewCell.h; sourceTree = "<group>"; };
 		668CD0521A2314C600220529 /* AlbumViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumViewCell.m; sourceTree = "<group>"; };
+		66FA031F1A25E4F900489EA0 /* albumdb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = albumdb.sql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +89,7 @@
 		668CD0051A20738E00220529 = {
 			isa = PBXGroup;
 			children = (
+				66FA031F1A25E4F900489EA0 /* albumdb.sql */,
 				668CD04C1A22FA7300220529 /* libsqlite3.dylib */,
 				668CD0101A20738E00220529 /* ArtisticB */,
 				668CD02D1A20738F00220529 /* ArtisticBTests */,
@@ -110,7 +111,6 @@
 			children = (
 				668CD0471A22F97900220529 /* DBManager.h */,
 				668CD0481A22F97900220529 /* DBManager.m */,
-				668CD0491A22F97900220529 /* sampledb.sql */,
 				668CD0401A22F90000220529 /* PersonalView */,
 				668CD03D1A20782600220529 /* FourthViewController.h */,
 				668CD03E1A20782600220529 /* FourthViewController.m */,
@@ -249,9 +249,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66FA03201A25E4F900489EA0 /* albumdb.sql in Resources */,
 				668CD0201A20738F00220529 /* Main.storyboard in Resources */,
 				668CD0251A20738F00220529 /* LaunchScreen.xib in Resources */,
-				668CD04B1A22F97A00220529 /* sampledb.sql in Resources */,
 				668CD0221A20738F00220529 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

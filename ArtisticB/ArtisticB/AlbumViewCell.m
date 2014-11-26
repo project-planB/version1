@@ -10,7 +10,9 @@
 
 @implementation AlbumViewCell
 
-@synthesize txtFirstname;
+@synthesize txtName;
+@synthesize txtBirthday;
+@synthesize txtNationality;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

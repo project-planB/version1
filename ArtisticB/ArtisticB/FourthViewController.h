@@ -1,5 +1,5 @@
 //
-//  UIViewController+ThirdViewController.h
+//  FourthViewController.h
 //  ArtisticB
 //
 //  Created by Nicholas Kim on 2014. 11. 22..

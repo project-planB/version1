@@ -1,5 +1,5 @@
 //
-//  UIViewController+EditInfoView.h
+//  EditInfoViewController.h
 //  ArtisticBaby
 //
 //  Created by Nicholas Kim on 2014. 11. 10..
@@ -19,15 +19,19 @@
 
 @property (nonatomic, strong) id<EditInfoViewControllerDelegate> delegate;
 
-@property (weak, nonatomic) IBOutlet UITextField *txtFirstname;
+@property (weak, nonatomic) IBOutlet UITextField *txtName;
 
-@property (weak, nonatomic) IBOutlet UITextField *txtLastname;
+@property (weak, nonatomic) IBOutlet UITextField *txtNationality;
 
-@property (weak, nonatomic) IBOutlet UITextField *txtAge;
+@property (weak, nonatomic) IBOutlet UITextField *txtBirthday;
 
 @property (nonatomic) int recordIDToEdit;
 
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (nonatomic, retain) IBOutlet UIToolbar *toolBar;
 
 - (IBAction)saveInfo:(id)sender;
+- (IBAction)textFieldReturn:(id)sender;
+- (IBAction)deleteFromDB:(id)sender;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AlbumViewController.h
 //  ArtisticBaby
 //
 //  Created by Nicholas Kim on 2014. 10. 29..
@@ -11,12 +11,11 @@
 
 @interface AlbumViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EditInfoViewControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tblPeople;
+@property (weak, nonatomic) IBOutlet UITableView *tblAlbums;
 @property (nonatomic, retain) IBOutlet UITableViewCell *albumCell;
 
 
 - (IBAction)addNewRecord:(id)sender;
-
-
+- (IBAction)editRecord:(id)sender;
 @end
 

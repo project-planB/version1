@@ -1,5 +1,5 @@
 //
-//  ViewController.m
+//  AlbumViewController.m
 //  ArtisticBaby
 //
 //  Created by Nicholas Kim on 2014. 10. 29..
@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) DBManager *dbManager;
 
-@property (nonatomic, strong) NSArray *arrPeopleInfo;
+@property (nonatomic, strong) NSArray *arrAlbumInfo;
 
 @property (nonatomic) int recordIDToEdit;
 
@@ -31,13 +31,13 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     // Make self the delegate and datasource of the table view.
-    self.tblPeople.delegate = self;
-    self.tblPeople.dataSource = self;
+    self.tblAlbums.delegate = self;
+    self.tblAlbums.dataSource = self;
     
     // Initialize the dbManager property.
-    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"sampledb.sql"];
+    self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"albumdb.sql"];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tblPeople.transform = CGAffineTransformMakeRotation(-M_PI * 0.5);
+    self.tblAlbums.transform = CGAffineTransformMakeRotation(-M_PI * 0.5);
     
     // Load the data.
     [self loadData];
@@ -64,21 +64,29 @@
     [self performSegueWithIdentifier:@"idSegueEditInfo" sender:self];
 }
 
+- (IBAction)editRecord:(id)sender {
+    // Before performing the segue, set the -1 value to the recordIDToEdit. That way we'll indicate that we want to add a new record and not to edit an existing one.
+    
+    // Perform the segue.
+    [self performSegueWithIdentifier:@"idSegueEditInfo" sender:self];
+}
+
+
 
 #pragma mark - Private method implementation
 
 -(void)loadData{
     // Form the query.
-    NSString *query = @"select * from peopleInfo";
+    NSString *query = @"select * from albumInfo";
     
     // Get the results.
-    if (self.arrPeopleInfo != nil) {
-        self.arrPeopleInfo = nil;
+    if (self.arrAlbumInfo != nil) {
+        self.arrAlbumInfo = nil;
     }
-    self.arrPeopleInfo = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
+    self.arrAlbumInfo = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
     
     // Reload the table view.
-    [self.tblPeople reloadData];
+    [self.tblAlbums reloadData];
 }
 
 
@@ -90,7 +98,7 @@
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.arrPeopleInfo.count;
+    return self.arrAlbumInfo.count;
 }
 
 
@@ -98,19 +106,17 @@
     // Dequeue the cell.
     AlbumViewCell *cell = (AlbumViewCell *)[tableView dequeueReusableCellWithIdentifier:@"idCellRecord" forIndexPath:indexPath];
     
-    NSInteger indexOfFirstname = [self.dbManager.arrColumnNames indexOfObject:@"firstname"];
-    NSInteger indexOfLastname = [self.dbManager.arrColumnNames indexOfObject:@"lastname"];
-    NSInteger indexOfAge = [self.dbManager.arrColumnNames indexOfObject:@"age"];
+    NSInteger indexOfName = [self.dbManager.arrColumnNames indexOfObject:@"name"];
+    NSInteger indexOfNationality = [self.dbManager.arrColumnNames indexOfObject:@"nationality"];
+    NSInteger indexOfBirthday = [self.dbManager.arrColumnNames indexOfObject:@"birthday"];
     
     // Set the loaded data to the appropriate cell labels.
-//    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfFirstname], [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfLastname]];
-//    
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"Age: %@", [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfAge]];
-//    cell.frame = CGRectMake(0, 0, 320, 320);
-    cell.txtFirstname.text = [[self.arrPeopleInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfFirstname];
+    cell.txtName.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfName];
+    cell.txtBirthday.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfBirthday];
+    NSLog(@"%@",[[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfBirthday]);
+    cell.txtNationality.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfNationality];
     cell.transform = CGAffineTransformMakeRotation(M_PI * 0.5);
-    
-    
+    self.recordIDToEdit = indexPath.row + 1;
     return cell;
 }
 
@@ -125,6 +131,11 @@
 -(void)editingInfoWasFinished{
     // Reload the data.
     [self loadData];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
 }
 
 

@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlbumViewCell : UITableViewCell <UITextFieldDelegate>
+@interface AlbumViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UITextField *txtFirstname;
+@property (weak, nonatomic) IBOutlet UILabel *txtName;
+@property (weak, nonatomic) IBOutlet UILabel *txtBirthday;
+@property (weak, nonatomic) IBOutlet UILabel *txtNationality;
 
 @end
