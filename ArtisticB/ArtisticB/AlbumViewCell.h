@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *txtName;
 @property (weak, nonatomic) IBOutlet UILabel *txtBirthday;
 @property (weak, nonatomic) IBOutlet UILabel *txtNationality;
+@property (weak, nonatomic) NSString *txtProfilePicturePath;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
 
 @end

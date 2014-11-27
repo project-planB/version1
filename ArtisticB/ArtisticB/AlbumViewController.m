@@ -29,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.imagePicker = [[ImagePicker alloc] init];
     
     // Make self the delegate and datasource of the table view.
     self.tblAlbums.delegate = self;
@@ -41,6 +42,7 @@
     
     // Load the data.
     [self loadData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,7 +72,7 @@
     NSIndexPath *indexpath = (NSIndexPath*)[visible objectAtIndex:0];
     NSInteger indexOfName = [self.dbManager.arrColumnNames indexOfObject:@"albumInfoID"];
     
-    self.recordIDToEdit = [[[self.arrAlbumInfo objectAtIndex:indexpath.row] objectAtIndex:indexOfName] integerValue];
+    self.recordIDToEdit = (int)[[[self.arrAlbumInfo objectAtIndex:indexpath.row] objectAtIndex:indexOfName] integerValue];
     // Perform the segue.
     [self performSegueWithIdentifier:@"idSegueEditInfo" sender:self];
 }
@@ -118,12 +120,14 @@
     NSInteger indexOfName = [self.dbManager.arrColumnNames indexOfObject:@"name"];
     NSInteger indexOfNationality = [self.dbManager.arrColumnNames indexOfObject:@"nationality"];
     NSInteger indexOfBirthday = [self.dbManager.arrColumnNames indexOfObject:@"birthday"];
+    NSInteger indexOfProfile = [self.dbManager.arrColumnNames indexOfObject:@"profile"];
     
     // Set the loaded data to the appropriate cell labels.
     cell.txtName.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfName];
     cell.txtBirthday.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfBirthday];
-    NSLog(@"%@",[[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfBirthday]);
     cell.txtNationality.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfNationality];
+    NSData *pngData = [NSData dataWithContentsOfFile:[[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]];
+    cell.profilePicture.image = [UIImage imageWithData:pngData];
     cell.transform = CGAffineTransformMakeRotation(M_PI * 0.5);
     return cell;
 }
@@ -151,6 +155,11 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return NO;
+}
+
+- (IBAction)addToAlbum:(id)sender {
+    [self.imagePicker setParentView:self];
+    [self.imagePicker addImage];
 }
 
 

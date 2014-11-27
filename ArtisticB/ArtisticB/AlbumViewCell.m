@@ -13,6 +13,8 @@
 @synthesize txtName;
 @synthesize txtBirthday;
 @synthesize txtNationality;
+@synthesize txtProfilePicturePath;
+@synthesize profilePicture;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

@@ -8,6 +8,7 @@
 
 #import "EditInfoViewController.h"
 #import "DBManager.h"
+#import "ImagePicker.h"
 
 
 @interface EditInfoViewController ()
@@ -42,7 +43,7 @@
     self.txtName.delegate = self;
     self.txtNationality.delegate = self;
     self.txtBirthday.delegate = self;
-
+    
     self.datePicker = [[UIDatePicker alloc]init];
     self.datePicker.datePickerMode = UIDatePickerModeDate;
     [self.datePicker addTarget:self action:@selector(dateChanged) forControlEvents:UIControlEventValueChanged];
@@ -51,6 +52,9 @@
     self.toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     self.toolBar.barStyle = UIBarStyleDefault;
     [self.toolBar sizeToFit];
+    
+    self.imagePicker = [[ImagePicker alloc] init];
+    [self.imagePicker setParentView:self];
     
     NSMutableArray *barItems = [[NSMutableArray alloc] init];
     
@@ -118,10 +122,10 @@
     // If the recordIDToEdit property has value other than -1, then create an update query. Otherwise create an insert query.
     NSString *query;
     if (self.recordIDToEdit == -1) {
-        query = [NSString stringWithFormat:@"insert into albumInfo values(null, '%@', '%@', '%@')", self.txtName.text, self.txtNationality.text, self.txtBirthday.text];
+        query = [NSString stringWithFormat:@"insert into albumInfo values(null, '%@', '%@', '%@', '%@')", self.txtName.text, self.txtNationality.text, self.txtBirthday.text, self.txtProfilePicturePath];
     }
     else{
-        query = [NSString stringWithFormat:@"update albumInfo set name='%@', nationality='%@', birthday='%@' where albumInfoID=%d", self.txtName.text, self.txtNationality.text, self.txtBirthday.text, self.recordIDToEdit];
+        query = [NSString stringWithFormat:@"update albumInfo set name='%@', nationality='%@', birthday='%@', profile='%@' where albumInfoID=%d", self.txtName.text, self.txtNationality.text, self.txtBirthday.text, self.txtProfilePicturePath, self.recordIDToEdit];
     }
     
     // Execute the query.
@@ -153,10 +157,13 @@
     NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
     
     if(results.count > 0) {
-    // Set the loaded data to the textfields.
-    self.txtName.text = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"name"]];
-    self.txtNationality.text = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"nationality"]];
-    self.txtBirthday.text = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"birthday"]];
+        // Set the loaded data to the textfields.
+        self.txtName.text = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"name"]];
+        self.txtNationality.text = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"nationality"]];
+        self.txtBirthday.text = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"birthday"]];
+        self.txtProfilePicturePath = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"profile"]];
+        [self.profilePicture setImage:[UIImage imageWithData:[NSData dataWithContentsOfFile:self.txtProfilePicturePath]] forState:UIControlStateNormal];
+
     } else {
         NSLog(@"%d", self.recordIDToEdit);
         NSLog(@"No results");
@@ -173,7 +180,7 @@
     // If the query was successfully executed then pop the view controller.
     if (self.dbManager.affectedRows != 0) {
         NSLog(@"Query was executed successfully. Affected rows = %d", self.dbManager.affectedRows);
-
+        
         // Inform the delegate that the editing was finished.
         [self.delegate editingInfoWasFinished];
         
@@ -196,14 +203,13 @@
 
 - (IBAction)setDefaultDate:(id)sender {
     
-    if([self.txtBirthday.text compare:@"Birthday"]) {
+    if([self.txtBirthday.text compare:@""] == 0) {
         [self dateChanged];
     } else {
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
         [dateFormat setDateStyle:NSDateFormatterMediumStyle];
         self.datePicker.date = [dateFormat dateFromString:self.txtBirthday.text];
     }
-    
 }
 
 - (void)doneButtonPressed {
@@ -211,7 +217,37 @@
 }
 
 - (void)cancelButtonPressed {
+    // Create the query.
+    NSString *query = [NSString stringWithFormat:@"select birthday from albumInfo where albumInfoID=%d", self.recordIDToEdit];
+    
+    // Load the relevant data.
+    NSArray *results = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
+    
+    if(results.count > 0) {
+        self.txtBirthday.text = [results objectAtIndex:0];
+    }
     [self.txtBirthday resignFirstResponder];
+}
+
+- (IBAction)changeProfilePicture:(id)sender {
+    [self.imagePicker addImage];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    NSLog(@"appeared");
+    NSData *pngData = UIImagePNGRepresentation(self.imagePicker.selectedImage);
+    self.txtProfilePicturePath = [self documentsPathForFileName:[NSString stringWithFormat:@"%d.png", self.recordIDToEdit]];
+    NSLog(@"%@", self.txtProfilePicturePath);
+    [pngData writeToFile:self.txtProfilePicturePath atomically:YES]; //Write the file
+    [self.profilePicture setImage:[self.imagePicker selectedImage] forState:UIControlStateNormal];
+}
+
+- (NSString *)documentsPathForFileName:(NSString *)name
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    
+    return [documentsPath stringByAppendingPathComponent:name];
 }
 
 @end

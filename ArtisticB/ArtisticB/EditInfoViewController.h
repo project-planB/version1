@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ImagePicker.h"
 
 @protocol EditInfoViewControllerDelegate
 
@@ -25,7 +26,12 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *txtBirthday;
 
+@property (strong, nonatomic) NSString *txtProfilePicturePath;
+
 @property (nonatomic) int recordIDToEdit;
+
+@property (nonatomic, strong) ImagePicker *imagePicker;
+@property (weak, nonatomic) IBOutlet UIButton *profilePicture;
 
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (nonatomic, retain) IBOutlet UIToolbar *toolBar;

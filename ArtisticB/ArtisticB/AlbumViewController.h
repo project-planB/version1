@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tblAlbums;
 @property (nonatomic, retain) IBOutlet UITableViewCell *albumCell;
 @property (weak, nonatomic) IBOutlet UILabel *labelNoAlbum;
-
+@property (nonatomic, strong) ImagePicker *imagePicker;
 
 - (IBAction)addNewRecord:(id)sender;
 - (IBAction)editRecord:(id)sender;
