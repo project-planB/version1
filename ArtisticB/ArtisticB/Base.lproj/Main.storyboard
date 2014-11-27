@@ -156,6 +156,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="labelNoAlbum" destination="5QM-li-w17" id="JVd-xH-1Hx"/>
                         <outlet property="tblAlbums" destination="q7g-bV-B0Z" id="WDe-rF-5zH"/>
                         <segue destination="BOy-6y-reG" kind="push" identifier="idSegueEditInfo" id="5aX-Nx-WeO"/>
                     </connections>
@@ -231,6 +232,9 @@
                                         <rect key="frame" x="86" y="46" width="106" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="setDefaultDate:" destination="BOy-6y-reG" eventType="editingDidBegin" id="mGf-7n-v5Y"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nationality" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w24-ZH-iue">
                                         <rect key="frame" x="86" y="84" width="106" height="30"/>

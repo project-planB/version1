@@ -67,11 +67,10 @@
 - (IBAction)editRecord:(id)sender {
     // Before performing the segue, set the -1 value to the recordIDToEdit. That way we'll indicate that we want to add a new record and not to edit an existing one.
     NSArray *visible = [self.tblAlbums indexPathsForVisibleRows];
-    
     NSIndexPath *indexpath = (NSIndexPath*)[visible objectAtIndex:0];
+    NSInteger indexOfName = [self.dbManager.arrColumnNames indexOfObject:@"albumInfoID"];
     
-    self.recordIDToEdit = (NSInteger)indexpath.row + 1;
-    
+    self.recordIDToEdit = [[[self.arrAlbumInfo objectAtIndex:indexpath.row] objectAtIndex:indexOfName] integerValue];
     // Perform the segue.
     [self performSegueWithIdentifier:@"idSegueEditInfo" sender:self];
 }
@@ -89,7 +88,7 @@
         self.arrAlbumInfo = nil;
     }
     self.arrAlbumInfo = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
-    
+
     // Reload the table view.
     [self.tblAlbums reloadData];
 }
@@ -102,7 +101,12 @@
 }
 
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(self.arrAlbumInfo.count > 0) {
+        [self.labelNoAlbum setHidden:YES];
+    } else {
+        [self.labelNoAlbum setHidden:NO];
+    }
     return self.arrAlbumInfo.count;
 }
 
@@ -133,12 +137,15 @@
 #pragma mark - EditInfoViewControllerDelegate method implementation
 
 -(void)editingInfoWasFinished{
+    
     // Reload the data.
-    NSString *query = @"update albumInfo";
-
-    [self.dbManager loadDataFromDB:query];
-    [self.tblAlbums reloadData];
     [self loadData];
+    
+    if(self.recordIDToEdit == -1) {
+        int lastRowNumber = [self.tblAlbums numberOfRowsInSection:0] - 1;
+        NSIndexPath* ip = [NSIndexPath indexPathForRow:lastRowNumber inSection:0];
+        [self.tblAlbums scrollToRowAtIndexPath:ip atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

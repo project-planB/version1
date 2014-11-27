@@ -72,7 +72,7 @@
     
     // Initialize the dbManager object.
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"albumdb.sql"];
-    
+    NSLog(@"selected id in editview %d", self.recordIDToEdit);
     // Check if should load specific record for editing.
     if (self.recordIDToEdit != -1) {
         // Load the record with the specific ID from the database.
@@ -192,6 +192,18 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateStyle:NSDateFormatterMediumStyle];
     self.txtBirthday.text = [dateFormat stringFromDate:date];
+}
+
+- (IBAction)setDefaultDate:(id)sender {
+    
+    if([self.txtBirthday.text compare:@"Birthday"]) {
+        [self dateChanged];
+    } else {
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateStyle:NSDateFormatterMediumStyle];
+        self.datePicker.date = [dateFormat dateFromString:self.txtBirthday.text];
+    }
+    
 }
 
 - (void)doneButtonPressed {

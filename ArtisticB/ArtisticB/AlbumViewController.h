@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tblAlbums;
 @property (nonatomic, retain) IBOutlet UITableViewCell *albumCell;
+@property (weak, nonatomic) IBOutlet UILabel *labelNoAlbum;
 
 
 - (IBAction)addNewRecord:(id)sender;
