@@ -76,7 +76,7 @@
     
     // Initialize the dbManager object.
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"albumdb.sql"];
-    NSLog(@"selected id in editview %d", self.recordIDToEdit);
+
     // Check if should load specific record for editing.
     if (self.recordIDToEdit != -1) {
         // Load the record with the specific ID from the database.
@@ -118,6 +118,15 @@
 #pragma mark - IBAction method implementation
 
 - (IBAction)saveInfo:(id)sender {
+    
+    [self resignFirstResponder];
+    
+    if(self.imagePicker.selectedImage != nil) {
+        NSData *pngData = UIImagePNGRepresentation(self.imagePicker.selectedImage);
+        self.txtProfilePicturePath = [self documentsPathForFileName:[NSString stringWithFormat:@"%@.png", self.txtName.text]];
+        [pngData writeToFile:self.txtProfilePicturePath atomically:YES]; //Write the file
+    }
+    
     // Prepare the query string.
     // If the recordIDToEdit property has value other than -1, then create an update query. Otherwise create an insert query.
     NSString *query;
@@ -163,7 +172,7 @@
         self.txtBirthday.text = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"birthday"]];
         self.txtProfilePicturePath = [[results objectAtIndex:0] objectAtIndex:[self.dbManager.arrColumnNames indexOfObject:@"profile"]];
         [self.profilePicture setImage:[UIImage imageWithData:[NSData dataWithContentsOfFile:self.txtProfilePicturePath]] forState:UIControlStateNormal];
-
+        
     } else {
         NSLog(@"%d", self.recordIDToEdit);
         NSLog(@"No results");
@@ -171,6 +180,9 @@
 }
 
 - (IBAction)deleteFromDB:(id)sender {
+    
+    [self removeImage:self.txtProfilePicturePath];
+    
     // Create the query.
     NSString *query = [NSString stringWithFormat:@"delete from albumInfo where albumInfoID=%d", self.recordIDToEdit];
     
@@ -192,13 +204,23 @@
     }
 }
 
+- (void)removeImage:(NSString *)fileName
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    BOOL success = [fileManager removeItemAtPath:fileName error:&error];
+    if (success) {
+        NSLog(@"Image deleted");
+    }
+    else
+    {
+        NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
+    }
+}
+
 #pragma mark- UITextField with UIDatePicker
 
 - (void)dateChanged {
-    NSDate *date = self.datePicker.date;
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-    [dateFormat setDateStyle:NSDateFormatterMediumStyle];
-    self.txtBirthday.text = [dateFormat stringFromDate:date];
 }
 
 - (IBAction)setDefaultDate:(id)sender {
@@ -213,6 +235,10 @@
 }
 
 - (void)doneButtonPressed {
+    NSDate *date = self.datePicker.date;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateStyle:NSDateFormatterMediumStyle];
+    self.txtBirthday.text = [dateFormat stringFromDate:date];
     [self.txtBirthday resignFirstResponder];
 }
 
@@ -230,16 +256,21 @@
 }
 
 - (IBAction)changeProfilePicture:(id)sender {
+    [self closeKeyboard];
     [self.imagePicker addImage];
 }
 
+- (void)closeKeyboard {
+    [self.txtName resignFirstResponder];
+    [self.txtBirthday resignFirstResponder];
+    [self.txtNationality resignFirstResponder];
+}
+
 -(void)viewDidAppear:(BOOL)animated {
-    NSLog(@"appeared");
-    NSData *pngData = UIImagePNGRepresentation(self.imagePicker.selectedImage);
-    self.txtProfilePicturePath = [self documentsPathForFileName:[NSString stringWithFormat:@"%d.png", self.recordIDToEdit]];
-    NSLog(@"%@", self.txtProfilePicturePath);
-    [pngData writeToFile:self.txtProfilePicturePath atomically:YES]; //Write the file
-    [self.profilePicture setImage:[self.imagePicker selectedImage] forState:UIControlStateNormal];
+    if(self.imagePicker.selectedImage != nil) {
+        [self.profilePicture setImage:[self.imagePicker selectedImage] forState:UIControlStateNormal];
+    }
+    [super viewDidAppear:YES];
 }
 
 - (NSString *)documentsPathForFileName:(NSString *)name

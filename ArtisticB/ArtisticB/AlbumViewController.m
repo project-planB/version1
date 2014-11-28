@@ -126,8 +126,8 @@
     cell.txtName.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfName];
     cell.txtBirthday.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfBirthday];
     cell.txtNationality.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfNationality];
-    NSData *pngData = [NSData dataWithContentsOfFile:[[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]];
-    cell.profilePicture.image = [UIImage imageWithData:pngData];
+
+    cell.profilePicture.image = [UIImage imageWithContentsOfFile:[[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]];
     cell.transform = CGAffineTransformMakeRotation(M_PI * 0.5);
     return cell;
 }

@@ -238,7 +238,7 @@
                                             <action selector="textFieldReturn:" destination="BOy-6y-reG" eventType="editingDidEndOnExit" id="8mV-EP-T67"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg5-S3-XNC">
+                                    <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kg5-S3-XNC">
                                         <rect key="frame" x="8" y="14" width="80" height="80"/>
                                         <state key="normal" title="+">
                                             <color key="titleColor" red="0.35247001259999999" green="0.35247001259999999" blue="0.35247001259999999" alpha="1" colorSpace="calibratedRGB"/>
