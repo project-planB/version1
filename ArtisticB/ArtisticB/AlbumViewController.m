@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray *arrAlbumInfo;
 
 @property (nonatomic) int recordIDToEdit;
+@property (nonatomic) NSString *dbName;
 
 -(void)loadData;
 
@@ -51,9 +52,22 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    EditInfoViewController *editInfoViewController = [segue destinationViewController];
-    editInfoViewController.delegate = self;
-    editInfoViewController.recordIDToEdit = self.recordIDToEdit;
+    NSLog(@"%@", segue.identifier);
+    if([segue.identifier compare:@"idSegueEditInfo"] == 0) {
+        EditInfoViewController *editInfoViewController = [segue destinationViewController];
+        editInfoViewController.delegate = self;
+        editInfoViewController.recordIDToEdit = self.recordIDToEdit;
+    } else {
+        NSArray *visible = [self.tblAlbums indexPathsForVisibleRows];
+        NSIndexPath *indexpath = (NSIndexPath*)[visible objectAtIndex:0];
+        NSInteger indexOfDBName = [self.dbManager.arrColumnNames indexOfObject:@"name"];
+        self.dbName = [[self.arrAlbumInfo objectAtIndex:indexpath.row] objectAtIndex:indexOfDBName];
+        [self createPhotoAlbum];
+        AlbumListViewController *albumListViewController = [segue destinationViewController];
+//        albumListViewController.delegate = self;
+        albumListViewController.dbName = self.dbName;
+        albumListViewController.recordIDToEdit = self.recordIDToEdit;
+    }
 }
 
 #pragma mark - IBAction method implementation
@@ -90,7 +104,7 @@
         self.arrAlbumInfo = nil;
     }
     self.arrAlbumInfo = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
-
+    
     // Reload the table view.
     [self.tblAlbums reloadData];
 }
@@ -126,7 +140,7 @@
     cell.txtName.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfName];
     cell.txtBirthday.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfBirthday];
     cell.txtNationality.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfNationality];
-
+    
     cell.profilePicture.image = [UIImage imageWithContentsOfFile:[[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]];
     cell.transform = CGAffineTransformMakeRotation(M_PI * 0.5);
     return cell;
@@ -158,8 +172,16 @@
 }
 
 - (IBAction)addToAlbum:(id)sender {
+    
+    [self createPhotoAlbum];
     [self.imagePicker setParentView:self];
     [self.imagePicker addImage];
+}
+
+- (void) createPhotoAlbum {
+    NSString *query = [NSString stringWithFormat:@"create table %@(photoID integer primary key, filename text, title text, story text)", self.dbName];
+    // Execute the query.
+    [self.dbManager executeQuery:query];
 }
 
 

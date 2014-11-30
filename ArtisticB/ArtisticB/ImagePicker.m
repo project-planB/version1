@@ -11,6 +11,7 @@
 @implementation ImagePicker
 
 @synthesize selectedImage;
+@synthesize imageInfo;
 
 - (instancetype)init
 {
@@ -76,6 +77,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)Picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    self.imageInfo = info;
     self.selectedImage = [self scaleAndRotateImage:[info objectForKey:UIImagePickerControllerOriginalImage]];
     [Picker dismissViewControllerAnimated:YES completion:nil];
 }

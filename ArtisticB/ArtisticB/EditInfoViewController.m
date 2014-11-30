@@ -121,6 +121,12 @@
     
     [self resignFirstResponder];
     
+    if([self.txtName.text compare:@""] == 0) {
+        UIAlertView *nameRequiredAlert=[[UIAlertView alloc]initWithTitle:@"Wait!" message:@"Name field is empty" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        [nameRequiredAlert show];
+        return;
+    }
+    
     if(self.imagePicker.selectedImage != nil) {
         NSData *pngData = UIImagePNGRepresentation(self.imagePicker.selectedImage);
         self.txtProfilePicturePath = [self documentsPathForFileName:[NSString stringWithFormat:@"%@.png", self.txtName.text]];

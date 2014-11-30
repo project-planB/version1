@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "EditInfoViewController.h"
+#import "AlbumListViewController.h"
+#import "AlbumViewCell.h"
 
 @interface AlbumViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EditInfoViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tblAlbums;
-@property (nonatomic, retain) IBOutlet UITableViewCell *albumCell;
+@property (nonatomic, retain) IBOutlet AlbumViewCell *albumCell;
 @property (weak, nonatomic) IBOutlet UILabel *labelNoAlbum;
 @property (nonatomic, strong) ImagePicker *imagePicker;
 

@@ -81,13 +81,6 @@
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FRJ-sU-CAj">
                                                     <rect key="frame" x="60" y="10" width="200" height="300"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lM0-Ig-ggj">
-                                                            <rect key="frame" x="0.0" y="262" width="88" height="34"/>
-                                                            <state key="normal" title="Album">
-                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                        </button>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="whs-FK-zSo">
                                                             <rect key="frame" x="104" y="262" width="88" height="34"/>
                                                             <state key="normal" title="Add">
@@ -130,6 +123,16 @@
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajG-ye-fTm">
                                                             <rect key="frame" x="4" y="46" width="80" height="80"/>
                                                         </imageView>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lM0-Ig-ggj">
+                                                            <rect key="frame" x="0.0" y="262" width="88" height="34"/>
+                                                            <state key="normal" title="Album">
+                                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                            </state>
+                                                            <connections>
+                                                                <segue destination="bhZ-oc-oeH" kind="show" identifier="idSegueShowAlbum" id="eXU-hv-vX5"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 </view>
@@ -162,7 +165,7 @@
                     <connections>
                         <outlet property="labelNoAlbum" destination="5QM-li-w17" id="JVd-xH-1Hx"/>
                         <outlet property="tblAlbums" destination="q7g-bV-B0Z" id="WDe-rF-5zH"/>
-                        <segue destination="BOy-6y-reG" kind="push" identifier="idSegueEditInfo" id="5aX-Nx-WeO"/>
+                        <segue destination="BOy-6y-reG" kind="show" identifier="idSegueEditInfo" id="5aX-Nx-WeO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOP-3z-xlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -280,6 +283,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYb-d7-lBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="537" y="2188"/>
+        </scene>
+        <!--AlbumList-->
+        <scene sceneID="rBl-CW-g9j">
+            <objects>
+                <viewController title="AlbumList" id="bhZ-oc-oeH" userLabel="AlbumList" customClass="AlbumListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3PD-aS-Zeu"/>
+                        <viewControllerLayoutGuide type="bottom" id="KO2-Ws-J89"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tMD-Pi-nCY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No Photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kb0-kl-ANm">
+                                <rect key="frame" x="0.0" y="262" width="320" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="idCellPhoto" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zkw-qg-Trz">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="idCellPhoto" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCellPhoto" id="NLm-F9-Usa">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NLm-F9-Usa" id="d5D-MI-ud2">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bhZ-oc-oeH" id="DdV-H7-kj4"/>
+                                    <outlet property="delegate" destination="bhZ-oc-oeH" id="SLq-t1-xs8"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="sFV-bS-zyV">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="SMo-v5-sXR">
+                            <connections>
+                                <action selector="addPhoto:" destination="bhZ-oc-oeH" id="KBM-vh-1Ch"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="labelNoPhotos" destination="kb0-kl-ANm" id="Ljd-EQ-V60"/>
+                        <outlet property="tblPhotos" destination="zkw-qg-Trz" id="7qq-I5-CgA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4yR-B0-eYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="985" y="1496"/>
         </scene>
         <!--Fourth-->
         <scene sceneID="ZcC-da-3U2">

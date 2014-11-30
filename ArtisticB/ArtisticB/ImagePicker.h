@@ -13,6 +13,8 @@
 @property (nonatomic, weak) UIViewController *parentView;
 @property (nonatomic, strong) UIImage *selectedImage;
 
+@property (nonatomic, strong) NSDictionary *imageInfo;
+
 - (void)addImage;
 - (void)setParentViewController:(UIViewController*)parent;
 

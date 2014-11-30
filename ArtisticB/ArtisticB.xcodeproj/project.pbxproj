@@ -24,6 +24,7 @@
 		668CD0531A2314C600220529 /* AlbumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0521A2314C600220529 /* AlbumViewCell.m */; };
 		66FA03231A26C8AA00489EA0 /* ImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FA03221A26C8AA00489EA0 /* ImagePicker.m */; };
 		66FA03291A270FCC00489EA0 /* albumdb.sql in Resources */ = {isa = PBXBuildFile; fileRef = 66FA03281A270FCC00489EA0 /* albumdb.sql */; };
+		66FA032C1A2A9F7000489EA0 /* AlbumListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 66FA032B1A2A9F7000489EA0 /* AlbumListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		66FA03211A26C8AA00489EA0 /* ImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImagePicker.h; sourceTree = "<group>"; };
 		66FA03221A26C8AA00489EA0 /* ImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImagePicker.m; sourceTree = "<group>"; };
 		66FA03281A270FCC00489EA0 /* albumdb.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = albumdb.sql; sourceTree = "<group>"; };
+		66FA032A1A2A9F7000489EA0 /* AlbumListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumListViewController.h; sourceTree = "<group>"; };
+		66FA032B1A2A9F7000489EA0 /* AlbumListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,8 @@
 				668CD0521A2314C600220529 /* AlbumViewCell.m */,
 				66FA03211A26C8AA00489EA0 /* ImagePicker.h */,
 				66FA03221A26C8AA00489EA0 /* ImagePicker.m */,
+				66FA032A1A2A9F7000489EA0 /* AlbumListViewController.h */,
+				66FA032B1A2A9F7000489EA0 /* AlbumListViewController.m */,
 			);
 			name = PersonalView;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 				668CD0461A22F96F00220529 /* AlbumViewController.m in Sources */,
 				668CD04A1A22F97A00220529 /* DBManager.m in Sources */,
 				668CD01D1A20738F00220529 /* SecondViewController.m in Sources */,
+				66FA032C1A2A9F7000489EA0 /* AlbumListViewController.m in Sources */,
 				668CD0171A20738F00220529 /* AppDelegate.m in Sources */,
 				668CD01A1A20738F00220529 /* FirstViewController.m in Sources */,
 				668CD0141A20738E00220529 /* main.m in Sources */,
