@@ -127,7 +127,7 @@
         return;
     }
     
-    if(self.imagePicker.selectedImage != nil) {
+    if(self.imagePicker.selected) {
         NSData *pngData = UIImagePNGRepresentation(self.imagePicker.selectedImage);
         self.txtProfilePicturePath = [self documentsPathForFileName:[NSString stringWithFormat:@"%@.png", self.txtName.text]];
         [pngData writeToFile:self.txtProfilePicturePath atomically:YES]; //Write the file
@@ -188,10 +188,10 @@
 - (IBAction)deleteFromDB:(id)sender {
     
     [self removeImage:self.txtProfilePicturePath];
+    [self emptyPhotoDB];
     
     // Create the query.
     NSString *query = [NSString stringWithFormat:@"delete from albumInfo where albumInfoID=%d", self.recordIDToEdit];
-    
     // Execute the query.
     [self.dbManager executeQuery:query];
     
@@ -208,6 +208,19 @@
     else{
         NSLog(@"Could not execute the query.");
     }
+}
+
+- (void)emptyPhotoDB {
+    NSString *query = [NSString stringWithFormat:@"select * from %@", self.txtName.text];
+    // Get the results.
+    NSArray *array = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
+    
+    for(int i=0;i<array.count;i++) {
+        NSInteger indexOfFileName = [self.dbManager.arrColumnNames indexOfObject:@"filename"];
+        [self removeImage:[[array objectAtIndex:i] objectAtIndex:indexOfFileName]];
+    }
+    query = [NSString stringWithFormat:@"drop table %@", self.txtName.text];
+    [self.dbManager executeQuery:query];
 }
 
 - (void)removeImage:(NSString *)fileName

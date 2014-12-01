@@ -11,12 +11,13 @@
 #import "AlbumListViewController.h"
 #import "AlbumViewCell.h"
 
-@interface AlbumViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EditInfoViewControllerDelegate>
+@interface AlbumViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, EditInfoViewControllerDelegate, AlbumListViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tblAlbums;
 @property (nonatomic, retain) IBOutlet AlbumViewCell *albumCell;
 @property (weak, nonatomic) IBOutlet UILabel *labelNoAlbum;
 @property (nonatomic, strong) ImagePicker *imagePicker;
+@property (nonatomic) BOOL showAndAdd;
 
 - (IBAction)addNewRecord:(id)sender;
 - (IBAction)editRecord:(id)sender;

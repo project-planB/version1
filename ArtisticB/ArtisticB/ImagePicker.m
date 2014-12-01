@@ -12,12 +12,14 @@
 
 @synthesize selectedImage;
 @synthesize imageInfo;
+@synthesize selected;
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
         self.delegate = self;
+        self.selected = NO;
     }
     return self;
 }
@@ -29,6 +31,7 @@
 - (void)addImage
 {
     [self.parentView resignFirstResponder];
+    self.selected = NO;
     
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle: nil
                                                              delegate: self
@@ -56,7 +59,6 @@
 {
     if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera])
     {
-        
         self.sourceType = UIImagePickerControllerSourceTypeCamera;
         self.allowsEditing = NO;
         self.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType: UIImagePickerControllerSourceTypeCamera];
@@ -77,6 +79,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)Picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    self.selected = YES;
     self.imageInfo = info;
     self.selectedImage = [self scaleAndRotateImage:[info objectForKey:UIImagePickerControllerOriginalImage]];
     [Picker dismissViewControllerAnimated:YES completion:nil];

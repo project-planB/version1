@@ -12,6 +12,7 @@
 
 @property (nonatomic, weak) UIViewController *parentView;
 @property (nonatomic, strong) UIImage *selectedImage;
+@property (nonatomic) BOOL selected;
 
 @property (nonatomic, strong) NSDictionary *imageInfo;
 

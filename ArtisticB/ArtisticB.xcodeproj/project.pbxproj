@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		665A8E9B1A2C067C001C0796 /* AlbumListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 665A8E9A1A2C067C001C0796 /* AlbumListViewCell.m */; };
+		665A8E9E1A2C45C7001C0796 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 665A8E9D1A2C45C7001C0796 /* PhotoViewController.m */; };
 		668CD0141A20738E00220529 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0131A20738E00220529 /* main.m */; };
 		668CD0171A20738F00220529 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0161A20738F00220529 /* AppDelegate.m */; };
 		668CD01A1A20738F00220529 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0191A20738F00220529 /* FirstViewController.m */; };
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		665A8E991A2C067C001C0796 /* AlbumListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumListViewCell.h; sourceTree = "<group>"; };
+		665A8E9A1A2C067C001C0796 /* AlbumListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumListViewCell.m; sourceTree = "<group>"; };
+		665A8E9C1A2C45C7001C0796 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		665A8E9D1A2C45C7001C0796 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		668CD00E1A20738E00220529 /* ArtisticB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtisticB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		668CD0121A20738E00220529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		668CD0131A20738E00220529 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -165,6 +171,8 @@
 		668CD0401A22F90000220529 /* PersonalView */ = {
 			isa = PBXGroup;
 			children = (
+				665A8E991A2C067C001C0796 /* AlbumListViewCell.h */,
+				665A8E9A1A2C067C001C0796 /* AlbumListViewCell.m */,
 				668CD0411A22F96F00220529 /* EditInfoViewController.h */,
 				668CD0421A22F96F00220529 /* EditInfoViewController.m */,
 				668CD0431A22F96F00220529 /* AlbumViewController.h */,
@@ -175,6 +183,8 @@
 				66FA03221A26C8AA00489EA0 /* ImagePicker.m */,
 				66FA032A1A2A9F7000489EA0 /* AlbumListViewController.h */,
 				66FA032B1A2A9F7000489EA0 /* AlbumListViewController.m */,
+				665A8E9C1A2C45C7001C0796 /* PhotoViewController.h */,
+				665A8E9D1A2C45C7001C0796 /* PhotoViewController.m */,
 			);
 			name = PersonalView;
 			sourceTree = "<group>";
@@ -285,8 +295,10 @@
 				668CD0461A22F96F00220529 /* AlbumViewController.m in Sources */,
 				668CD04A1A22F97A00220529 /* DBManager.m in Sources */,
 				668CD01D1A20738F00220529 /* SecondViewController.m in Sources */,
+				665A8E9B1A2C067C001C0796 /* AlbumListViewCell.m in Sources */,
 				66FA032C1A2A9F7000489EA0 /* AlbumListViewController.m in Sources */,
 				668CD0171A20738F00220529 /* AppDelegate.m in Sources */,
+				665A8E9E1A2C45C7001C0796 /* PhotoViewController.m in Sources */,
 				668CD01A1A20738F00220529 /* FirstViewController.m in Sources */,
 				668CD0141A20738E00220529 /* main.m in Sources */,
 				66FA03231A26C8AA00489EA0 /* ImagePicker.m in Sources */,

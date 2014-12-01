@@ -64,9 +64,10 @@
         self.dbName = [[self.arrAlbumInfo objectAtIndex:indexpath.row] objectAtIndex:indexOfDBName];
         [self createPhotoAlbum];
         AlbumListViewController *albumListViewController = [segue destinationViewController];
-//        albumListViewController.delegate = self;
+        albumListViewController.delegate = self;
         albumListViewController.dbName = self.dbName;
         albumListViewController.recordIDToEdit = self.recordIDToEdit;
+        albumListViewController.addMode = self.showAndAdd;
     }
 }
 
@@ -136,6 +137,7 @@
     NSInteger indexOfBirthday = [self.dbManager.arrColumnNames indexOfObject:@"birthday"];
     NSInteger indexOfProfile = [self.dbManager.arrColumnNames indexOfObject:@"profile"];
     
+    NSLog(@"%d", indexPath.row);
     // Set the loaded data to the appropriate cell labels.
     cell.txtName.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfName];
     cell.txtBirthday.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfBirthday];
@@ -172,16 +174,19 @@
 }
 
 - (IBAction)addToAlbum:(id)sender {
-    
-    [self createPhotoAlbum];
-    [self.imagePicker setParentView:self];
-    [self.imagePicker addImage];
+    self.showAndAdd = YES;
+    [self performSegueWithIdentifier:@"idSegueShowAlbum" sender:self];
 }
 
 - (void) createPhotoAlbum {
     NSString *query = [NSString stringWithFormat:@"create table %@(photoID integer primary key, filename text, title text, story text)", self.dbName];
     // Execute the query.
     [self.dbManager executeQuery:query];
+}
+
+-(void)backFromAlbumList {
+    self.showAndAdd = NO;
+    [self loadData];
 }
 
 

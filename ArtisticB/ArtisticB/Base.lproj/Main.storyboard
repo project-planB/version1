@@ -306,12 +306,28 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="idCellPhoto" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCellPhoto" id="NLm-F9-Usa">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCellPhoto" id="NLm-F9-Usa" customClass="AlbumListViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NLm-F9-Usa" id="d5D-MI-ud2">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o6V-wd-oSe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MiK-Lu-rO4">
+                                                    <rect key="frame" x="31" y="9" width="177" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="profilePicture" destination="o6V-wd-oSe" id="eoM-7q-2yD"/>
+                                            <outlet property="txtName" destination="MiK-Lu-rO4" id="8tx-6y-caQ"/>
+                                            <segue destination="FDr-CJ-Apw" kind="show" identifier="idSegueShowPhoto" id="qaF-pr-b0d"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -336,7 +352,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4yR-B0-eYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985" y="1496"/>
+            <point key="canvasLocation" x="985" y="1495"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="SES-gX-sRC">
+            <objects>
+                <viewController id="FDr-CJ-Apw" customClass="PhotoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aRK-Wy-HBT"/>
+                        <viewControllerLayoutGuide type="bottom" id="wAx-yS-Zca"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YJa-Vi-Q6r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4Z-Jd-J0G">
+                                <rect key="frame" x="16" y="72" width="288" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VRK-BF-Qw7">
+                                <rect key="frame" x="0.0" y="114" width="320" height="320"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="selectedImage" destination="VRK-BF-Qw7" id="nZ8-ZT-OZU"/>
+                        <outlet property="titleLabel" destination="L4Z-Jd-J0G" id="byI-mF-HG1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gpY-pb-z6W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1470" y="1495"/>
         </scene>
         <!--Fourth-->
         <scene sceneID="ZcC-da-3U2">
