@@ -143,8 +143,12 @@
     cell.txtBirthday.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfBirthday];
     cell.txtNationality.text = [[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfNationality];
     
-    cell.profilePicture.image = [UIImage imageWithContentsOfFile:[[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]];
+    UIImage *img = [UIImage imageWithContentsOfFile:[[self.arrAlbumInfo objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]];
+    if(img != nil) {
+        cell.profilePicture.image = img;
+    }
     cell.transform = CGAffineTransformMakeRotation(M_PI * 0.5);
+    
     return cell;
 }
 

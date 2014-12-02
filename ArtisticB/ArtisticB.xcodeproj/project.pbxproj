@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		665A8E9B1A2C067C001C0796 /* AlbumListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 665A8E9A1A2C067C001C0796 /* AlbumListViewCell.m */; };
 		665A8E9E1A2C45C7001C0796 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 665A8E9D1A2C45C7001C0796 /* PhotoViewController.m */; };
+		665A8EA11A2D4E57001C0796 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = 665A8EA01A2D4E57001C0796 /* person.png */; };
+		665A8EA51A2D9173001C0796 /* SharedPicsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 665A8EA41A2D9173001C0796 /* SharedPicsViewCell.m */; };
+		665A8EA81A2D9743001C0796 /* SharedPicsCellBG.m in Sources */ = {isa = PBXBuildFile; fileRef = 665A8EA71A2D9743001C0796 /* SharedPicsCellBG.m */; };
 		668CD0141A20738E00220529 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0131A20738E00220529 /* main.m */; };
 		668CD0171A20738F00220529 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0161A20738F00220529 /* AppDelegate.m */; };
 		668CD01A1A20738F00220529 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0191A20738F00220529 /* FirstViewController.m */; };
@@ -44,6 +47,11 @@
 		665A8E9A1A2C067C001C0796 /* AlbumListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumListViewCell.m; sourceTree = "<group>"; };
 		665A8E9C1A2C45C7001C0796 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
 		665A8E9D1A2C45C7001C0796 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
+		665A8EA01A2D4E57001C0796 /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person.png; sourceTree = "<group>"; };
+		665A8EA31A2D9173001C0796 /* SharedPicsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedPicsViewCell.h; sourceTree = "<group>"; };
+		665A8EA41A2D9173001C0796 /* SharedPicsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedPicsViewCell.m; sourceTree = "<group>"; };
+		665A8EA61A2D9743001C0796 /* SharedPicsCellBG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedPicsCellBG.h; sourceTree = "<group>"; };
+		665A8EA71A2D9743001C0796 /* SharedPicsCellBG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedPicsCellBG.m; sourceTree = "<group>"; };
 		668CD00E1A20738E00220529 /* ArtisticB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtisticB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		668CD0121A20738E00220529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		668CD0131A20738E00220529 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +106,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		665A8E9F1A2D4E2D001C0796 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				665A8EA01A2D4E57001C0796 /* person.png */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
+		665A8EA21A2D8EA0001C0796 /* WorldView */ = {
+			isa = PBXGroup;
+			children = (
+				665A8EA61A2D9743001C0796 /* SharedPicsCellBG.h */,
+				665A8EA71A2D9743001C0796 /* SharedPicsCellBG.m */,
+				665A8EA31A2D9173001C0796 /* SharedPicsViewCell.h */,
+				665A8EA41A2D9173001C0796 /* SharedPicsViewCell.m */,
+				668CD0181A20738F00220529 /* FirstViewController.h */,
+				668CD0191A20738F00220529 /* FirstViewController.m */,
+			);
+			name = WorldView;
+			sourceTree = "<group>";
+		};
 		668CD0051A20738E00220529 = {
 			isa = PBXGroup;
 			children = (
@@ -121,15 +150,13 @@
 		668CD0101A20738E00220529 /* ArtisticB */ = {
 			isa = PBXGroup;
 			children = (
+				665A8EA21A2D8EA0001C0796 /* WorldView */,
+				665A8E9F1A2D4E2D001C0796 /* resources */,
 				668CD0471A22F97900220529 /* DBManager.h */,
 				668CD0481A22F97900220529 /* DBManager.m */,
 				668CD0401A22F90000220529 /* PersonalView */,
-				668CD03D1A20782600220529 /* FourthViewController.h */,
-				668CD03E1A20782600220529 /* FourthViewController.m */,
 				668CD0151A20738F00220529 /* AppDelegate.h */,
 				668CD0161A20738F00220529 /* AppDelegate.m */,
-				668CD0181A20738F00220529 /* FirstViewController.h */,
-				668CD0191A20738F00220529 /* FirstViewController.m */,
 				668CD01B1A20738F00220529 /* SecondViewController.h */,
 				668CD01C1A20738F00220529 /* SecondViewController.m */,
 				668CD01E1A20738F00220529 /* Main.storyboard */,
@@ -171,6 +198,8 @@
 		668CD0401A22F90000220529 /* PersonalView */ = {
 			isa = PBXGroup;
 			children = (
+				668CD03D1A20782600220529 /* FourthViewController.h */,
+				668CD03E1A20782600220529 /* FourthViewController.m */,
 				665A8E991A2C067C001C0796 /* AlbumListViewCell.h */,
 				665A8E9A1A2C067C001C0796 /* AlbumListViewCell.m */,
 				668CD0411A22F96F00220529 /* EditInfoViewController.h */,
@@ -273,6 +302,7 @@
 				668CD0201A20738F00220529 /* Main.storyboard in Resources */,
 				668CD0251A20738F00220529 /* LaunchScreen.xib in Resources */,
 				668CD0221A20738F00220529 /* Images.xcassets in Resources */,
+				665A8EA11A2D4E57001C0796 /* person.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +331,8 @@
 				665A8E9E1A2C45C7001C0796 /* PhotoViewController.m in Sources */,
 				668CD01A1A20738F00220529 /* FirstViewController.m in Sources */,
 				668CD0141A20738E00220529 /* main.m in Sources */,
+				665A8EA51A2D9173001C0796 /* SharedPicsViewCell.m in Sources */,
+				665A8EA81A2D9743001C0796 /* SharedPicsCellBG.m in Sources */,
 				66FA03231A26C8AA00489EA0 /* ImagePicker.m in Sources */,
 				668CD0531A2314C600220529 /* AlbumViewCell.m in Sources */,
 				668CD0451A22F96F00220529 /* EditInfoViewController.m in Sources */,
