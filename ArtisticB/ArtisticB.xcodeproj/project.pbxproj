@@ -12,6 +12,8 @@
 		665A8EA11A2D4E57001C0796 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = 665A8EA01A2D4E57001C0796 /* person.png */; };
 		665A8EA51A2D9173001C0796 /* SharedPicsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 665A8EA41A2D9173001C0796 /* SharedPicsViewCell.m */; };
 		665A8EA81A2D9743001C0796 /* SharedPicsCellBG.m in Sources */ = {isa = PBXBuildFile; fileRef = 665A8EA71A2D9743001C0796 /* SharedPicsCellBG.m */; };
+		667B94901A2E9F47005CDA5D /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 667B948F1A2E9F47005CDA5D /* sample.jpg */; };
+		667B94931A2EA4CD005CDA5D /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 667B94921A2EA4CD005CDA5D /* ContentViewController.m */; };
 		668CD0141A20738E00220529 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0131A20738E00220529 /* main.m */; };
 		668CD0171A20738F00220529 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0161A20738F00220529 /* AppDelegate.m */; };
 		668CD01A1A20738F00220529 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 668CD0191A20738F00220529 /* FirstViewController.m */; };
@@ -52,6 +54,9 @@
 		665A8EA41A2D9173001C0796 /* SharedPicsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedPicsViewCell.m; sourceTree = "<group>"; };
 		665A8EA61A2D9743001C0796 /* SharedPicsCellBG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedPicsCellBG.h; sourceTree = "<group>"; };
 		665A8EA71A2D9743001C0796 /* SharedPicsCellBG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedPicsCellBG.m; sourceTree = "<group>"; };
+		667B948F1A2E9F47005CDA5D /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
+		667B94911A2EA4CD005CDA5D /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		667B94921A2EA4CD005CDA5D /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
 		668CD00E1A20738E00220529 /* ArtisticB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtisticB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		668CD0121A20738E00220529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		668CD0131A20738E00220529 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -109,6 +114,7 @@
 		665A8E9F1A2D4E2D001C0796 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				667B948F1A2E9F47005CDA5D /* sample.jpg */,
 				665A8EA01A2D4E57001C0796 /* person.png */,
 			);
 			name = resources;
@@ -123,6 +129,8 @@
 				665A8EA41A2D9173001C0796 /* SharedPicsViewCell.m */,
 				668CD0181A20738F00220529 /* FirstViewController.h */,
 				668CD0191A20738F00220529 /* FirstViewController.m */,
+				667B94911A2EA4CD005CDA5D /* ContentViewController.h */,
+				667B94921A2EA4CD005CDA5D /* ContentViewController.m */,
 			);
 			name = WorldView;
 			sourceTree = "<group>";
@@ -299,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66FA03291A270FCC00489EA0 /* albumdb.sql in Resources */,
+				667B94901A2E9F47005CDA5D /* sample.jpg in Resources */,
 				668CD0201A20738F00220529 /* Main.storyboard in Resources */,
 				668CD0251A20738F00220529 /* LaunchScreen.xib in Resources */,
 				668CD0221A20738F00220529 /* Images.xcassets in Resources */,
@@ -324,6 +333,7 @@
 				668CD03C1A20774700220529 /* ThirdViewController.m in Sources */,
 				668CD0461A22F96F00220529 /* AlbumViewController.m in Sources */,
 				668CD04A1A22F97A00220529 /* DBManager.m in Sources */,
+				667B94931A2EA4CD005CDA5D /* ContentViewController.m in Sources */,
 				668CD01D1A20738F00220529 /* SecondViewController.m in Sources */,
 				665A8E9B1A2C067C001C0796 /* AlbumListViewCell.m in Sources */,
 				66FA032C1A2A9F7000489EA0 /* AlbumListViewController.m in Sources */,

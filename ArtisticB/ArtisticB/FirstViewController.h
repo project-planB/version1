@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContentViewController.h"
 
 @interface FirstViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *tblSharedPics;
+@property (nonatomic) ContentViewController *content;
+
+- (IBAction)goBack:(id)sender;
 
 @end
 

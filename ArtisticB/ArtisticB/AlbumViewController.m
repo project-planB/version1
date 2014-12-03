@@ -13,9 +13,7 @@
 @interface AlbumViewController ()
 
 @property (nonatomic, strong) DBManager *dbManager;
-
 @property (nonatomic, strong) NSArray *arrAlbumInfo;
-
 @property (nonatomic) int recordIDToEdit;
 @property (nonatomic) NSString *dbName;
 
