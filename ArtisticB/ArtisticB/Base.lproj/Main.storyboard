@@ -16,11 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x74-ka-XBE">
+                                <rect key="frame" x="0.0" y="66" width="320" height="502"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jdn-Lr-Hhu">
-                                <rect key="frame" x="0.0" y="20" width="320" height="42"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="46"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3f-Re-9gK">
-                                        <rect key="frame" x="8" y="6" width="35" height="30"/>
+                                        <rect key="frame" x="8" y="8" width="50" height="30"/>
                                         <state key="normal" title="Back">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -31,15 +35,6 @@
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x74-ka-XBE">
-                                <rect key="frame" x="0.0" y="62" width="320" height="506"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JoB-4v-yxG">
-                                        <rect key="frame" x="17" y="14" width="275" height="290"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
@@ -48,12 +43,11 @@
                         <outlet property="backButton" destination="F3f-Re-9gK" id="h95-1K-W2a"/>
                         <outlet property="container" destination="x74-ka-XBE" id="RKc-bR-qAP"/>
                         <outlet property="menuBar" destination="Jdn-Lr-Hhu" id="CJT-D4-B6l"/>
-                        <outlet property="picture" destination="JoB-4v-yxG" id="NCm-pm-Pn5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sz2-Va-bGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1253" y="796"/>
+            <point key="canvasLocation" x="-1229" y="779"/>
         </scene>
         <!--First-->
         <scene sceneID="hNz-n2-bh7">
@@ -67,7 +61,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
                                 <rect key="frame" x="81" y="263" width="158" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
@@ -77,35 +71,48 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wAE-W4-NRv">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="2it-bp-OCW">
-                                    <size key="itemSize" width="145" height="177"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
-                                </collectionViewFlowLayout>
+                                <collectionViewLayout key="collectionViewLayout" id="67B-O7-li7"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="picCell" id="hT2-Ml-eQw" customClass="SharedPicsViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="140" height="177"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RiP-hZ-TRR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="177"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RiP-hZ-TRR">
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person.png" translatesAutoresizingMaskIntoConstraints="NO" id="10C-29-Lqs">
-                                                            <rect key="frame" x="0.0" y="0.0" width="140" height="177"/>
+                                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="person.png" translatesAutoresizingMaskIntoConstraints="NO" id="10C-29-Lqs">
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="140" id="6Xz-s1-5en"/>
+                                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="177" id="PRP-d6-Vqp"/>
+                                                            </constraints>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="leading" secondItem="RiP-hZ-TRR" secondAttribute="leading" id="2Us-lR-uo4"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="top" secondItem="RiP-hZ-TRR" secondAttribute="top" id="2gY-FR-wgP"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="centerY" secondItem="RiP-hZ-TRR" secondAttribute="centerY" id="6cN-u2-zcZ"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="centerX" secondItem="RiP-hZ-TRR" secondAttribute="centerX" id="6gu-zm-9y7"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="leading" secondItem="RiP-hZ-TRR" secondAttribute="leading" id="7js-ZE-Wg6"/>
+                                                        <constraint firstAttribute="bottom" secondItem="10C-29-Lqs" secondAttribute="bottom" id="HwG-MP-9i8"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="top" secondItem="RiP-hZ-TRR" secondAttribute="top" id="WBQ-oI-g09"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="leading" secondItem="RiP-hZ-TRR" secondAttribute="leading" id="Wai-8a-NCn"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="top" secondItem="RiP-hZ-TRR" secondAttribute="top" id="gqW-Ni-PuA"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="leading" secondItem="RiP-hZ-TRR" secondAttribute="leading" id="hoO-WM-eUY"/>
+                                                        <constraint firstAttribute="trailing" secondItem="10C-29-Lqs" secondAttribute="trailing" id="lp1-gQ-7Sv"/>
+                                                        <constraint firstAttribute="trailing" secondItem="10C-29-Lqs" secondAttribute="trailing" id="sLF-Zr-BUQ"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="top" secondItem="RiP-hZ-TRR" secondAttribute="top" id="wfm-rG-V3U"/>
+                                                        <constraint firstAttribute="bottom" secondItem="10C-29-Lqs" secondAttribute="bottom" id="x4Q-6O-Ial"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="customSize" width="140" height="177"/>
                                         <connections>
+                                            <outlet property="container" destination="RiP-hZ-TRR" id="A2y-3U-Sj3"/>
                                             <outlet property="profilePicture" destination="10C-29-Lqs" id="DGk-ot-6WF"/>
                                         </connections>
                                     </collectionViewCell>
@@ -117,10 +124,6 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" id="exm-UA-ej4"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>

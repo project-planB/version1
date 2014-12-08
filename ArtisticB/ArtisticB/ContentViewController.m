@@ -18,15 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.container setAutoresizesSubviews:YES];
-    [self.picture setAutoresizesSubviews:YES];
-    [self.view setAutoresizesSubviews:YES];
-    
-    [self.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
-    [self.container setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
-    [self.picture setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
-    
 }
 
 - (void)didReceiveMemoryWarning {

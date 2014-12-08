@@ -15,6 +15,7 @@
 @property (nonatomic, strong) DBManager *dbManager;
 @property (nonatomic, strong) NSArray *arrTest;
 @property (nonatomic) CGRect cellRect;
+@property (nonatomic) SharedPicsViewCell *datasetCell;
 
 @end
 
@@ -45,15 +46,17 @@
     static NSString *identifier = @"picCell";
     
     SharedPicsViewCell *cell = (SharedPicsViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
-    cell.layer.masksToBounds = YES;
-    cell.layer.cornerRadius = 5.0;
-    
     NSInteger indexOfProfile = [self.dbManager.arrColumnNames indexOfObject:@"profile"];
     //    UIImage *img = [UIImage imageWithContentsOfFile:[[self.arrTest objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]]; //For real case
     UIImage *img = [UIImage imageNamed:[[self.arrTest objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]]; //For Test
     if(img != nil) {
         cell.profilePicture.image = img;
+        
+        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, img.size.height*140/img.size.width);
+        cell.container.frame = cell.frame;
+        cell.profilePicture.frame = CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height);
     }
+    [cell setRoundCorners:YES];
     
     return cell;
 }
@@ -62,14 +65,25 @@
     [self itemSelected:indexPath];
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSInteger indexOfProfile = [self.dbManager.arrColumnNames indexOfObject:@"profile"];
+    //    UIImage *img = [UIImage imageWithContentsOfFile:[[self.arrTest objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]]; //For real case
+    UIImage *img = [UIImage imageNamed:[[self.arrTest objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]]; //For Test
+
+    NSLog(@"%f", img.size.height*140/img.size.width);
+    return CGSizeMake(140, img.size.height*140/img.size.width);
+}
+
 - (void)initializeDatabase {
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"albumdb.sql"];
     
     NSString *query = @"delete from albumInfo";
     [self.dbManager executeQuery:query];
-    
+    NSArray *imgs = [[NSArray alloc] initWithObjects:@"IMG_0009.JPG", @"IMG_0091.jpg",@"IMG_0851.JPG", @"sample.png", nil];
     for(int i=0;i<100;i++) {
-        query = [NSString stringWithFormat:@"insert into albumInfo values(null, '%@', '%@', '%@', '%@')", @"Who", @"Where", @"1980-11-05", @"sample.jpg"];
+        query = [NSString stringWithFormat:@"insert into albumInfo values(null, '%@', '%@', '%@', '%@')", @"Who", @"Where", @"1980-11-05", [imgs objectAtIndex:i%3]];
         // Execute the query.
         [self.dbManager executeQuery:query];
     }
@@ -83,45 +97,44 @@
 }
 
 - (void)itemSelected:(NSIndexPath*)idx {
-    UICollectionViewLayoutAttributes *attributes = [self.tblSharedPics layoutAttributesForItemAtIndexPath:idx];
-    self.cellRect = CGRectMake(attributes.frame.origin.x, self.tblSharedPics.frame.origin.y + attributes.frame.origin.y - self.tblSharedPics.contentOffset.y, attributes.frame.size.width, attributes.frame.size.height);
-    self.content.container.frame = self.cellRect;
-    NSInteger indexOfProfile = [self.dbManager.arrColumnNames indexOfObject:@"profile"];
-    //    UIImage *img = [UIImage imageWithContentsOfFile:[[self.arrTest objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]]; //For real case
-    UIImage *img = [UIImage imageNamed:[[self.arrTest objectAtIndex:idx.row] objectAtIndex:indexOfProfile]]; //For Test
-    if(img != nil) {
-        //        self.content.picture.image = img;
-    }
+    self.datasetCell = (SharedPicsViewCell *)[self.tblSharedPics cellForItemAtIndexPath:idx];
+    self.cellRect = self.datasetCell.frame;
     [self.view addSubview:self.content.view];
-    [self.view bringSubviewToFront:self.content.container];
+    [self.tblSharedPics bringSubviewToFront:self.datasetCell];
     [self animateContent:YES];
+    [self.datasetCell setRoundCorners:NO];
 }
 
 - (IBAction)goBack:(id)sender {
+    [self.datasetCell setRoundCorners:YES];
     [self animateContent:NO];
 }
 
 - (void)animateContent:(BOOL)expand {
     [self.content.menuBar setHidden:NO];
     CGRect frame = self.content.container.frame;
+    CGRect frameForPic = CGRectMake(0, 0, frame.size.width, frame.size.height);
     CGFloat opacity = self.content.menuBar.alpha;
     if(expand) {
         frame.origin.x = 0;
-        frame.origin.y = 20 + self.content.menuBar.frame.size.height;
+        frame.origin.y = self.content.menuBar.frame.size.height + self.tblSharedPics.contentOffset.y;
         frame.size.width = self.view.frame.size.width;
+        frame.size.height = self.view.frame.size.height;
         opacity = 1;
     } else {
         frame = self.cellRect;
+        frameForPic = CGRectMake(0, 0, frame.size.width, frame.size.height);
         opacity = 0;
     }
     
-    [UIView animateWithDuration:0.25
-                          delay:0.0
-         usingSpringWithDamping:1.5
-          initialSpringVelocity:0.8
-                        options:(UIViewAnimationCurveEaseInOut|UIViewAnimationOptionAllowUserInteraction)
+    [UIView animateWithDuration:0.6
+                          delay:0
+         usingSpringWithDamping:0.9
+          initialSpringVelocity:4
+                        options:0
                      animations:^{
-                         self.content.container.frame = frame;
+                         self.datasetCell.frame = frame;
+                         self.datasetCell.profilePicture.frame = frameForPic;
                          self.content.menuBar.alpha = opacity;
                      }
                      completion:^(BOOL finished){

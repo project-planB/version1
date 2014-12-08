@@ -15,5 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *txtNationality;
 @property (weak, nonatomic) NSString *txtProfilePicturePath;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicture;
+@property (nonatomic, strong) IBOutlet UIView *container;
+
+- (void)setRoundCorners:(BOOL)round;
+- (CGSize)intrinsicContentSize;
 
 @end
