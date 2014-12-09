@@ -18,6 +18,7 @@
 @property (nonatomic, strong) IBOutlet UIView *container;
 
 - (void)setRoundCorners:(BOOL)round;
+- (void)setImage:(UIImage*)img;
 - (CGSize)intrinsicContentSize;
 
 @end

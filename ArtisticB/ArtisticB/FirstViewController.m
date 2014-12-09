@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSArray *arrTest;
 @property (nonatomic) CGRect cellRect;
 @property (nonatomic) SharedPicsViewCell *datasetCell;
+@property (nonatomic, strong) NSMutableArray *cellSizes;
 
 @end
 
@@ -47,16 +48,10 @@
     
     SharedPicsViewCell *cell = (SharedPicsViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     NSInteger indexOfProfile = [self.dbManager.arrColumnNames indexOfObject:@"profile"];
-    //    UIImage *img = [UIImage imageWithContentsOfFile:[[self.arrTest objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]]; //For real case
     UIImage *img = [UIImage imageNamed:[[self.arrTest objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]]; //For Test
-    if(img != nil) {
-        cell.profilePicture.image = img;
-        
-        cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width, img.size.height*140/img.size.width);
-        cell.container.frame = cell.frame;
-        cell.profilePicture.frame = CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height);
-    }
+    [cell setImage:img];
     [cell setRoundCorners:YES];
+    NSLog(@"%f  %f" , cell.profilePicture.frame.size.width, cell.profilePicture.frame.size.height);
     
     return cell;
 }
@@ -65,16 +60,30 @@
     [self itemSelected:indexPath];
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    NSInteger indexOfProfile = [self.dbManager.arrColumnNames indexOfObject:@"profile"];
-    //    UIImage *img = [UIImage imageWithContentsOfFile:[[self.arrTest objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]]; //For real case
-    UIImage *img = [UIImage imageNamed:[[self.arrTest objectAtIndex:indexPath.row] objectAtIndex:indexOfProfile]]; //For Test
-
-    NSLog(@"%f", img.size.height*140/img.size.width);
-    return CGSizeMake(140, img.size.height*140/img.size.width);
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 2;
 }
+
+- (NSMutableArray *)cellSizes {
+    if (!_cellSizes) {
+        NSInteger indexOfProfile = [self.dbManager.arrColumnNames indexOfObject:@"profile"];
+        _cellSizes = [NSMutableArray array];
+        for (NSInteger i = 0; i < self.arrTest.count; i++) {
+            UIImage *img = [UIImage imageNamed:[[self.arrTest objectAtIndex:i] objectAtIndex:indexOfProfile]]; //For Test
+            CGSize size = CGSizeMake(140, img.size.height*140/img.size.width);
+            
+            _cellSizes[i] = [NSValue valueWithCGSize:size];
+        }
+    }
+    return _cellSizes;
+}
+
+//- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    return [self.cellSizes[indexPath.item] CGSizeValue];
+//}
+
+- (NSInteger)col
 
 - (void)initializeDatabase {
     self.dbManager = [[DBManager alloc] initWithDatabaseFilename:@"albumdb.sql"];

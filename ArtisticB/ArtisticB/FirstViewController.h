@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ContentViewController.h"
+#import "CollectionViewLayout.h"
 
-@interface FirstViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface FirstViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *tblSharedPics;
 @property (nonatomic) ContentViewController *content;

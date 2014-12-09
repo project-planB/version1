@@ -71,40 +71,47 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wAE-W4-NRv">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <collectionViewLayout key="collectionViewLayout" id="67B-O7-li7"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ON3-Ys-QcT">
+                                    <size key="itemSize" width="140" height="140"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="picCell" id="hT2-Ml-eQw" customClass="SharedPicsViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RiP-hZ-TRR">
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RiP-hZ-TRR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="person.png" translatesAutoresizingMaskIntoConstraints="NO" id="10C-29-Lqs">
+                                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" ambiguous="YES" image="person.png" translatesAutoresizingMaskIntoConstraints="NO" id="10C-29-Lqs">
+                                                            <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="140" id="6Xz-s1-5en"/>
-                                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="177" id="PRP-d6-Vqp"/>
+                                                                <constraint firstAttribute="height" constant="140" id="M6p-Xu-DWb"/>
+                                                                <constraint firstAttribute="width" constant="140" id="sUH-Zs-MCI"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="leading" secondItem="RiP-hZ-TRR" secondAttribute="leading" id="2Us-lR-uo4"/>
-                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="top" secondItem="RiP-hZ-TRR" secondAttribute="top" id="2gY-FR-wgP"/>
-                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="centerY" secondItem="RiP-hZ-TRR" secondAttribute="centerY" id="6cN-u2-zcZ"/>
-                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="centerX" secondItem="RiP-hZ-TRR" secondAttribute="centerX" id="6gu-zm-9y7"/>
-                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="leading" secondItem="RiP-hZ-TRR" secondAttribute="leading" id="7js-ZE-Wg6"/>
-                                                        <constraint firstAttribute="bottom" secondItem="10C-29-Lqs" secondAttribute="bottom" id="HwG-MP-9i8"/>
-                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="top" secondItem="RiP-hZ-TRR" secondAttribute="top" id="WBQ-oI-g09"/>
-                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="leading" secondItem="RiP-hZ-TRR" secondAttribute="leading" id="Wai-8a-NCn"/>
-                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="top" secondItem="RiP-hZ-TRR" secondAttribute="top" id="gqW-Ni-PuA"/>
-                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="leading" secondItem="RiP-hZ-TRR" secondAttribute="leading" id="hoO-WM-eUY"/>
-                                                        <constraint firstAttribute="trailing" secondItem="10C-29-Lqs" secondAttribute="trailing" id="lp1-gQ-7Sv"/>
-                                                        <constraint firstAttribute="trailing" secondItem="10C-29-Lqs" secondAttribute="trailing" id="sLF-Zr-BUQ"/>
-                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="top" secondItem="RiP-hZ-TRR" secondAttribute="top" id="wfm-rG-V3U"/>
-                                                        <constraint firstAttribute="bottom" secondItem="10C-29-Lqs" secondAttribute="bottom" id="x4Q-6O-Ial"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="leading" secondItem="RiP-hZ-TRR" secondAttribute="leading" id="16r-L1-RT5"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="leading" secondItem="RiP-hZ-TRR" secondAttribute="leading" id="BhC-hs-awa"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="top" secondItem="RiP-hZ-TRR" secondAttribute="top" id="J9s-mg-KhF"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="top" secondItem="RiP-hZ-TRR" secondAttribute="top" id="JuM-mN-rQh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="10C-29-Lqs" secondAttribute="trailing" id="Xo3-ig-S6s"/>
+                                                        <constraint firstAttribute="bottom" secondItem="10C-29-Lqs" secondAttribute="bottom" id="XtD-aG-6Jz"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="top" secondItem="RiP-hZ-TRR" secondAttribute="top" id="Yh4-Ph-vPe"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="top" secondItem="RiP-hZ-TRR" secondAttribute="top" id="Yog-QQ-u8X"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="leading" secondItem="RiP-hZ-TRR" secondAttribute="leading" id="Zd8-gn-SLk"/>
+                                                        <constraint firstAttribute="bottom" secondItem="10C-29-Lqs" secondAttribute="bottom" id="bGa-Kx-vok"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="centerY" secondItem="RiP-hZ-TRR" secondAttribute="centerY" id="fIt-9j-dP1"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="leading" secondItem="RiP-hZ-TRR" secondAttribute="leading" id="hJO-oS-wfz"/>
+                                                        <constraint firstAttribute="trailing" secondItem="10C-29-Lqs" secondAttribute="trailing" id="phf-OD-vIT"/>
+                                                        <constraint firstItem="10C-29-Lqs" firstAttribute="centerX" secondItem="RiP-hZ-TRR" secondAttribute="centerX" id="vg3-hT-4MB"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
